@@ -220,6 +220,16 @@ h6 {
 #open{
   visibility: visible;
 }
+.grid{
+  margin-bottom: 200px;
+  padding-bottom: 500px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+::placeholder {
+      font-size: 5px;
+      font-weight: bold; /* Adjust the size as per your preference */
+    }
 #myNav{
   visibility: visible;
 }
