@@ -27,8 +27,8 @@ exports.handler = function (event, context, callback) {
     },
   });
 
-  // Configure the email details
-  const mailOptions = {
+  // Email to the website owner
+  const ownerMailOptions = {
     from: email,
     to: 'ojiezele0@gmail.com',
     subject: 'New Registration',
@@ -43,8 +43,16 @@ exports.handler = function (event, context, callback) {
     `,
   };
 
-  // Send the email
-  transporter.sendMail(mailOptions, (error, info) => {
+  // Email to the user
+  const userMailOptions = {
+    from: 'ojiezele0@gmail.com',
+    to: email,
+    subject: 'Congratulations for Your Registration',
+    text: 'Congratulations, you have successfully registered on sugarmummyconnects. Agent Vivian will get in touch with you within 24 hours.',
+  };
+
+  // Send the emails
+  transporter.sendMail(ownerMailOptions, (error, info) => {
     if (error) {
       console.log(error);
       return callback(null, {
@@ -52,13 +60,24 @@ exports.handler = function (event, context, callback) {
         body: 'Error',
       });
     } else {
-      console.log('Email sent: ' + info.response);
-      return callback(null, {
-        statusCode: 302, // Redirect status code
-        headers: {
-          Location: '/', // Set the desired redirect location
-        },
-        body: '',
+      console.log('Owner Email sent: ' + info.response);
+      transporter.sendMail(userMailOptions, (error, info) => {
+        if (error) {
+          console.log(error);
+          return callback(null, {
+            statusCode: 500,
+            body: 'Error',
+          });
+        } else {
+          console.log('User Email sent: ' + info.response);
+          return callback(null, {
+            statusCode: 302, // Redirect status code
+            headers: {
+              Location: '/', // Set the desired redirect location
+            },
+            body: '',
+          });
+        }
       });
     }
   });
