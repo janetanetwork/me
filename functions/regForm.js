@@ -8,15 +8,17 @@ exports.handler = function (event, context, callback) {
     });
   }
 
-  const formData = new URLSearchParams(event.body);
+  const formData = new FormData();
+  const body = JSON.parse(event.body);
 
-  const name = formData.get('name');
-  const dob = formData.get('dob');
-  const origin = formData.get('origin');
-  const nationality = formData.get('nationality');
-  const mobile = formData.get('mobile');
-  const email = formData.get('email');
-  const gender = formData.get('gender');
+  formData.append('name', body.name);
+  formData.append('dob', body.dob);
+  formData.append('origin', body.origin);
+  formData.append('nationality', body.nationality);
+  formData.append('mobile', body.mobile);
+  formData.append('email', body.email);
+  formData.append('gender', body.gender);
+  formData.append('passport', body.passport);
 
   // Create a transport object using your SMTP credentials
   const transporter = nodemailer.createTransport({
@@ -29,18 +31,24 @@ exports.handler = function (event, context, callback) {
 
   // Configure the email details
   const mailOptions = {
-    from: email,
-    to: 'ojiezele@gmail.com',
+    from: body.email,
+    to: 'ojiezele0@gmail.com',
     subject: 'New Registration',
     text: `
-      Name: ${name}
-      Date of Birth: ${dob}
-      Place of Origin: ${origin}
-      Nationality: ${nationality}
-      Mobile No: ${mobile}
-      Email: ${email}
-      Gender: ${gender}
+      Name: ${body.name}
+      Date of Birth: ${body.dob}
+      Place of Origin: ${body.origin}
+      Nationality: ${body.nationality}
+      Mobile No: ${body.mobile}
+      Email: ${body.email}
+      Gender: ${body.gender}
     `,
+    attachments: [
+      {
+        filename: body.passport.name,
+        content: body.passport.data,
+      },
+    ],
   };
 
   // Send the email
