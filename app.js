@@ -3,8 +3,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 const nodemailer = require('nodemailer');
 
-// Serve static files from the "public" directory
-app.use(express.static('public'));
+
 
 // Parse URL-encoded bodies (as sent by HTML forms)
 app.use(express.urlencoded({ extended: true }));
@@ -41,6 +40,9 @@ app.post('/submit', (req, res) => {
     }
   });
 });
+
+// Serve static files from the "public" directory
+app.use(express.static('public'));
 
 // Start the server
 app.listen(port, () => {
