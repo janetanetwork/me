@@ -8,7 +8,7 @@ exports.handler = function (event, context, callback) {
     });
   }
 
-  const { name, email, subject, message } = JSON.parse(event.body);
+  const { name, email, subject, message } = event.body;
 
   // Create a transport object using your SMTP credentials
   const transporter = nodemailer.createTransport({
