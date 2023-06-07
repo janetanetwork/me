@@ -216,15 +216,24 @@ h6 {
     border-radius: 5px 0px 0px 5px;
   }
 
+  .grid{
+  
+  padding-bottom: 800px;
+  
+}
+
 @media (max-width: 991px) {
 #open{
   visibility: visible;
 }
 .grid{
-  margin-bottom: 200px;
-  padding-bottom: 500px;
+  margin-bottom: 500px;
+  padding-bottom: 800px;
   padding-right: 10px;
   padding-left: 10px;
+}
+#footer{
+  margin-top: -500px;
 }
 ::placeholder {
       font-size: 5px;

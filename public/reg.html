@@ -148,7 +148,7 @@
 
          
           <div class="">
-            <form action="/.netlify/functions/regForm" name="register" method="POST" class="php-email-form" enctype="multipart/form-data">
+            <form action="/.netlify/functions/regForm" name="register" method="POST" class="php-email-form">
   <div class="row">
     <div class="col form-group">
       <input type="text" name="name" class="form-control" id="name" placeholder="Applicant Name" required>
@@ -181,22 +181,21 @@
       <option value="other">Other</option>
     </select>
   </div>
-  <div class="form-group">
-    <label for="passport">Passport Image:</label>
-    <input type="file" class="form-control-file" name="passport" id="passport" accept="image/*" required>
-  </div>
-  <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="terms" required>
-    <label class="form-check-label" for="terms">I agree to the Terms and Conditions</label>
-  </div>
   <div class="my-3">
     <div class="loading">Loading</div>
     <div class="error-message"></div>
     <div class="sent-message">Your message has been sent. Thank you!</div>
   </div>
-  <div class="text-center">
-    <button type="submit" style="background-color: #000c19; border: 1px solid darkred; color: white;">Register</button>
-  </div>
+  <p align="center" style="background-color: #000c19;border: 1px solid darkred; color: white; font-weight: bold;">Terms & Conditions</p>
+  <div style="color: darkred; font-size: 7px; font-weight: bold;">
+  <div>* Note:Only new members are required to pay the registration fee</div><br>
+  <div>* Registration payment lasts for a 6-month duration</div><br>
+  <div>* Registration fee is refundable at any time if mummy doesn't pay as agreed with your agent</div><br>
+  <div>* All applicants are to be hookedup within 20 minutes of making payments</div><br>
+  <div>* Applicant must be above 18 years of age</div><br>
+  <div>* No refund of payment after first payment from mummy</div><br>
+  <div>* No applicant should steal or take anything/any valuable from a mummy without the mummy's consent</div><br></div>
+  <div class="text-center"><button type="submit" style="background-color: #000c19;border: 1px solid darkred; color: white;">Register</button></div>
 </form>
 
           </div>

@@ -17,7 +17,6 @@ exports.handler = function (event, context, callback) {
   const mobile = formData.get('mobile');
   const email = formData.get('email');
   const gender = formData.get('gender');
-  const passport = event.isBase64Encoded ? Buffer.from(formData.get('passport'), 'base64') : formData.get('passport');
 
   // Create a transport object using your SMTP credentials
   const transporter = nodemailer.createTransport({
@@ -31,7 +30,7 @@ exports.handler = function (event, context, callback) {
   // Configure the email details
   const mailOptions = {
     from: email,
-    to: 'ojiezele@gmail.com',
+    to: 'ojiezele0@gmail.com',
     subject: 'New Registration',
     text: `
       Name: ${name}
@@ -42,13 +41,6 @@ exports.handler = function (event, context, callback) {
       Email: ${email}
       Gender: ${gender}
     `,
-    attachments: [
-      {
-        filename: 'passport.jpg',
-        content: passport,
-        encoding: 'base64',
-      },
-    ],
   };
 
   // Send the email
