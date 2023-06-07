@@ -1,0 +1,7 @@
+[build]
+command = "npm run build" # Specify your build command if needed
+functions = "functions" # Specify the directory where your serverless functions are located
+
+[[redirects]]
+from = "/submit"
+to = "/.netlify/functions/submitForm"
