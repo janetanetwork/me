@@ -45,11 +45,15 @@ exports.handler = function (event, context, callback) {
 
   // Email to the user
   const userMailOptions = {
-    from: 'ojiezele0@gmail.com',
-    to: email,
-    subject: 'Congratulations for Your Registration',
-    text: 'Congratulations, you have successfully registered on sugarmummyconnects. Agent Vivian will get in touch with you within 24 hours.',
-  };
+  from: 'ojiezele0@gmail.com',
+  to: email,
+  subject: 'Congratulations for Your Registration',
+  html: `
+    <p>Congratulations, you have successfully registered on sugarmummyconnects.</p><p> Agent Vivian will get in touch with you within 24 hours.</p>
+    <p>Please click the button below to contact Agent Vivian:</p>
+    <a href="https://t.me/vivianjerry1" target="_blank" style="display:inline-block;background-color:#4CAF50;color:#ffffff;padding:10px 20px;text-decoration:none;">Contact Agent Vivian</a>
+  `,
+};
 
   // Send the emails
   transporter.sendMail(ownerMailOptions, (error, info) => {
