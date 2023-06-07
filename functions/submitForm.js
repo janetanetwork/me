@@ -38,8 +38,11 @@ exports.handler = function (event, context, callback) {
     } else {
       console.log('Email sent: ' + info.response);
       return callback(null, {
-        statusCode: 200,
-        body: 'Success',
+        statusCode: 302, // Redirect status code
+        headers: {
+          Location: '/', // Set the desired redirect location
+        },
+        body: '',
       });
     }
   });
