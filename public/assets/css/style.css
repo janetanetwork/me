@@ -227,13 +227,13 @@ h6 {
   visibility: visible;
 }
 .grid{
-  margin-bottom: 500px;
+  
   padding-bottom: 800px;
   padding-right: 10px;
   padding-left: 10px;
 }
-#footer{
-  margin-top: -500px;
+.grid"{
+  margin-bottom:-600px;
 }
 ::placeholder {
       font-size: 5px;
